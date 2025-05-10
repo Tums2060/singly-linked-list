@@ -31,5 +31,17 @@ class Linked_list:
             self.tail.next = new_node
             self.tail = new_node
             
+    #2nd method
+    def insert_at_start(self, data):
+        #Since we are inserting at the head, it should always have something to point to, in this case the original head
         
+        new_node = Node(data, self.head)  
+        #now the head is the node that i have just created
+        self.head = new_node
+        
+        #to ensire that if the list is empty, the none is assigned the node i have just created
+        if self.tail is None:
+            self.tail = new_node
+            
+    
             
