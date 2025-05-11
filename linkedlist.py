@@ -132,5 +132,16 @@ class Linked_list:
             print(current_node.data, end=" -> ")
             current_node = current_node.next
         print("None")
+        
+##IMPLEMENTING THE FUNCTIONS
+l1 = Linked_list()
+l1.insert_at_start('a')
+l1.insert_at_end('b')
+
+l1.insert_at_index('c',0)
+
+l1.display()
+
+print(l1.search('c'))
             
             
