@@ -43,5 +43,34 @@ class Linked_list:
         if self.tail is None:
             self.tail = new_node
             
-    
-            
+    #3rd method
+    def insert_at_index(self, data, index):
+        if (index == 0):
+            self.insert_at_start(data)
+            return
+        elif (index == -1):
+            self.insert_at_end(data)
+            return
+        
+        #To keep track of current position in the list
+        position = 0
+        
+        #Starting from the head
+        current_node = self.head
+        #transversing until the position is last or a position before the index is reached
+        
+        while (current_node != None and position+1 != index):
+            position = position+1
+            #We continue moving to the next node in the list until the while loop is satisfied
+            current_node = current_node.next
+          
+        #if the new node index is valid,  
+        if current_node != None:
+            new_node = Node(data)
+        #we create it and make it point to the same value as the current_node
+            new_node.next = current_node.next
+        #and then i change the current_node to point to the new_node which points to the value after
+        #This inserts is between
+            current_node.next = new_node
+        else:
+            print("Index not present")
