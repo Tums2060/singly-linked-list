@@ -100,10 +100,26 @@ class Linked_list:
         #If index is higher and it loops till it reaches the end
         if current_node.next is None:
             print("Index out of bounds")
-        #Assigning the current_node.next to be deleted, ad we have stopped at current_node
+        #Assigning the current_node.next to be deleted, as we have stopped at current_node
         else:
             deleted_node = current_node.next
             #Skipping past the deleted node
             current_node.next = current_node.next.next
+            
+    def search(self, data):
+        #Starting at the begining of the list
+        current_node = self.head
+        #creating the variavle index and assigning it 0
+        index =0
+        
+        while current_node != None:
+            #If the current nodes data is equal to the data we return the count of the index
+            if current_node.data == data:
+                return index
+            #If not we go to the next node and increment index until the data is equal to what was inputted
+            current_node = current_node.next
+            index = index +1
+            #If it doesn't exist, we return -1
+            return -1
             
             
