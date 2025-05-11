@@ -105,7 +105,8 @@ class Linked_list:
             deleted_node = current_node.next
             #Skipping past the deleted node
             current_node.next = current_node.next.next
-            
+    
+    #5th method        
     def search(self, data):
         #Starting at the begining of the list
         current_node = self.head
@@ -121,5 +122,15 @@ class Linked_list:
             index = index +1
             #If it doesn't exist, we return -1
             return -1
+    
+    #6th method
+    def display(self):
+        #Starting from the head
+        current_node = self.head
+        #print all values one by one going to the next
+        while current_node:
+            print(current_node.data, end=" -> ")
+            current_node = current_node.next
+        print("None")
             
             
