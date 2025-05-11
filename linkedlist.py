@@ -70,7 +70,40 @@ class Linked_list:
         #we create it and make it point to the same value as the current_node
             new_node.next = current_node.next
         #and then i change the current_node to point to the new_node which points to the value after
-        #This inserts is between
+        #This inserts it between
             current_node.next = new_node
         else:
             print("Index not present")
+            
+    #4th method
+    def delete_at_index(self, index):
+        #To check if the list is empty
+        if self.head is None:
+            return
+        
+        #If the 1st index is deleted i.e. the head, i assign it to a variable
+        if index == 0:
+            deleted_node = self.head
+            #And the i make the new head the one which the orignal head was pointing to
+            self.head = self.head.next
+            return
+        
+        #initializing a counter and starting from the head
+        position = 0
+        current_node = self.head
+        
+        #It continues transversing until it reaches the end, or the node before the index
+        while current_node.next is not None and position+1 < index:
+            position = position+1
+            #Moving to next node while true
+            current_node = current_node.next
+        #If index is higher and it loops till it reaches the end
+        if current_node.next is None:
+            print("Index out of bounds")
+        #Assigning the current_node.next to be deleted, ad we have stopped at current_node
+        else:
+            deleted_node = current_node.next
+            #Skipping past the deleted node
+            current_node.next = current_node.next.next
+            
+            
